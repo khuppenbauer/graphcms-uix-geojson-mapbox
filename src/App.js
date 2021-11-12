@@ -534,7 +534,7 @@ const geoJson = {
 
 const Mapbox = (data) => {
   const { data: geoJson } = data;
-  const coordinates = geoJson.features.map(feature => feature.geometry.coordinates);
+  const [coordinates] = geoJson.features.map(feature => feature.geometry.coordinates);
   const bounds = coordinates.reduce(function (bounds, coord) {
     return bounds.extend(coord);
   }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
